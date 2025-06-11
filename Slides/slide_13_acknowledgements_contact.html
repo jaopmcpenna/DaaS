@@ -78,6 +78,21 @@
             padding: 3rem;
             box-shadow: 0 0 50px rgba(0, 191, 255, 0.2);
         }
+        
+        .qr-code {
+            width: 150px;
+            height: 150px;
+            margin: 2rem auto;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 191, 255, 0.3);
+        }
+        
+        .repo-link {
+            font-size: 1rem;
+            color: #00bfff;
+            margin-top: 1rem;
+            opacity: 0.8;
+        }
     </style>
 </head>
 <body>
@@ -90,7 +105,14 @@
                 <div class="author-name">João Paulo Penna</div>
                 
                 <div class="contact-info">
-                    [email de contato] | [link para o LinkedIn]
+                    joao.penna@ga.ita.br
+                </div>
+                
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://github.com/jaopmcpenna/DaaS" 
+                     alt="QR Code - Repositório GitHub" class="qr-code">
+                
+                <div class="repo-link">
+                    Repositório: github.com/jaopmcpenna/DaaS
                 </div>
                 
                 <div class="questions-text">

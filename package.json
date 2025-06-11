@@ -11,6 +11,7 @@
     "start": "npm run present"
   },
   "dependencies": {
+    "pdf-lib": "^1.17.1",
     "puppeteer": "^21.5.0"
   },
   "devDependencies": {
@@ -29,4 +30,4 @@
   "engines": {
     "node": ">=14.0.0"
   }
-} 
+}
