@@ -1,0 +1,32 @@
+{
+  "name": "apresentacao-daas",
+  "version": "1.0.0",
+  "description": "Apresentação sobre Viabilidade operacional e econômica de um serviço Drone-as-a-Service",
+  "main": "generate-pdf.js",
+  "scripts": {
+    "dev": "live-server Slides/ --port=3000 --open=index.html",
+    "present": "live-server Slides/ --port=3000 --open=presentation.html",
+    "generate-pdf": "node generate-pdf.js",
+    "install-deps": "npm install",
+    "start": "npm run present"
+  },
+  "dependencies": {
+    "puppeteer": "^21.5.0"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2"
+  },
+  "keywords": [
+    "apresentacao",
+    "slides",
+    "drone",
+    "delivery",
+    "daas",
+    "ita"
+  ],
+  "author": "João Paulo Penna",
+  "license": "MIT",
+  "engines": {
+    "node": ">=14.0.0"
+  }
+} 

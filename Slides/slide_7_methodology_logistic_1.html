@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slide 7 - Metodologia II: Modelo Logístico (Parte 1)</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background: linear-gradient(135deg, #0a0f1c 0%, #12182b 50%, #1a2332 100%);
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            padding: 60px;
+        }
+        
+        .content-left {
+            flex: 1;
+            padding-right: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .content-right {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .slide-title {
+            font-size: 2.25rem;
+            font-weight: 800;
+            color: #00bfff;
+            margin-bottom: 2rem;
+            text-shadow: 0 0 20px rgba(0, 191, 255, 0.4);
+            line-height: 1.2;
+        }
+        
+        .bullet-point {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+        
+        .bullet-icon {
+            width: 8px;
+            height: 8px;
+            background: #00bfff;
+            border-radius: 50%;
+            margin-right: 1rem;
+            margin-top: 0.75rem;
+            box-shadow: 0 0 10px rgba(0, 191, 255, 0.6);
+        }
+        
+        .visual-element {
+            width: 500px;
+            height: 350px;
+            background-image: url("https://private-us-east-1.manuscdn.com/sessionFile/rciVyjHlvroGZrs9SDaEjB/sandbox/slides_resource_i4efh998hqnnlhiyyjzhg-23146f42-e2b-prod-aws_1749570407189_na1fn_L2hvbWUvdWJ1bnR1L3ByZXNlbnRhdGlvbl9kcm9uZV9kZWxpdmVyeS9jbHVzdGVyaW5nX3Zpc3VhbGl6YXRpb24.png?x-oss-process=image/resize,w_1560,h_1560/format,webp&Expires=1767225600&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvcmNpVnlqSGx2cm9HWnJzOVNEYUVqQi9zYW5kYm94L3NsaWRlc19yZXNvdXJjZV9pNGVmaDk5OGhxbm5saGl5eWp6aGctMjMxNDZmNDItZTJiLXByb2QtYXdzXzE3NDk1NzA0MDcxODlfbmExZm5fTDJodmJXVXZkV0oxYm5SMUwzQnlaWE5sYm5SaGRHbHZibDlrY205dVpWOWtaV3hwZG1WeWVTOWpiSFZ6ZEdWeWFXNW5YM1pwYzNWaGJHbDZZWFJwYjI0LnBuZz94LW9zcy1wcm9jZXNzPWltYWdlL3Jlc2l6ZSx3XzE1NjAsaF8xNTYwL2Zvcm1hdCx3ZWJwIiwiQ29uZGl0aW9uIjp7IkRhdGVMZXNzVGhhbiI6eyJBV1M6RXBvY2hUaW1lIjoxNzY3MjI1NjAwfX19XX0_&Key-Pair-Id=K2HSFNDJXOU9YS&Signature=IndljNg2IUGcH9cUkkQZg9~ouN~YNKYjX6jNsheG1jtXdY6eygkMTBEQ2ky849FGnyrhnPk9sV4t1Ar3Lr3jbcFHmWzfbcGSAt5iVrze1sNPGh7-cXa9318Hk9B~3uR3jIOG9fYsBCZPnJcB-sYyQvOkfraWxGto4wBDF1STzJKEH1CbVTB12b9EGc5U9XZaqCab9P2p6McnhoHcmEjBZKthyIHGLlDdWKvtBSHKbD67I39HDPDKb0QoEgS-eqIffYP5O1MFU0MQdOLpYt5wKH5JkMswcn4hwei~HYHJwrNFTOVu22K~fLNUrlpb1Wue7KR65jXoRPz-Si3BpHNF8g__");
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            border-radius: 15px;
+            box-shadow: 0 0 30px rgba(0, 191, 255, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="content-left">
+            <h1 class="slide-title">Definição da Malha Logística: Onde Operar?</h1>
+            
+            <div class="bullet-point">
+                <div class="bullet-icon"></div>
+                <div>Cálculo do DSR para cada ponto de entrega e decisão do modelo de entrega</div>
+            </div>
+            
+            <div class="bullet-point">
+                <div class="bullet-icon"></div>
+                <div>Clusterização dos pontos de entrega usando o algoritmo K-Means.</div>
+            </div>
+            
+            <div class="bullet-point">
+                <div class="bullet-icon"></div>
+                <div>Definição do número ideal de clusters (k) pelo Método do Cotovelo (Elbow Method).</div>
+            </div>
+        </div>
+        
+        <div class="content-right">
+            <div class="visual-element"></div>
+        </div>
+    </div>
+</body>
+</html>
+

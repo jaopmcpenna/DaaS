@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Índice - Viabilidade DaaS</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background: white;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+        .title-blue {
+            color: #1e40af;
+        }
+        .bullet-orange {
+            color: #f97316;
+        }
+        .footer {
+            position: absolute;
+            bottom: 20px;
+            left: 40px;
+            font-size: 14px;
+            color: #6b7280;
+        }
+        .slide-link {
+            transition: all 0.3s ease;
+            border-left: 4px solid transparent;
+        }
+        .slide-link:hover {
+            transform: translateX(8px);
+            border-left: 4px solid #f97316;
+            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+        }
+        .slide-number {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #1e40af, #3b82f6);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container p-16">
+        <!-- Cabeçalho -->
+        <div class="text-center mb-12">
+            <h1 class="title-blue text-4xl font-bold mb-4">Índice da Apresentação</h1>
+            <h2 class="text-2xl text-gray-600 mb-8">Viabilidade operacional e econômica de um serviço Drone-as-a-Service</h2>
+            <div class="flex justify-center items-center space-x-4 mb-8">
+                <i class="fas fa-user title-blue text-xl"></i>
+                <span class="text-lg">João Paulo Penna</span>
+                <span class="text-gray-400">|</span>
+                <i class="fas fa-chalkboard-teacher title-blue text-xl"></i>
+                <span class="text-lg">Prof. Dr. Christopher Schneider Cerqueira</span>
+            </div>
+        </div>
+
+        <!-- Lista de Slides -->
+        <div class="grid grid-cols-2 gap-4 max-w-6xl mx-auto">
+            <!-- Slide 1 -->
+            <a href="slide_1_cover.html" class="slide-link p-4 rounded-lg flex items-center space-x-4 group">
+                <div class="slide-number">1</div>
+                <div>
+                    <h3 class="title-blue font-semibold text-lg group-hover:text-orange-500">Título</h3>
+                    <p class="text-gray-600 text-sm">Apresentação e contexto</p>
+                </div>
+            </a>
+
+            <!-- Slide 2 -->
+            <a href="slide_2_context_problem.html" class="slide-link p-4 rounded-lg flex items-center space-x-4 group">
+                <div class="slide-number">2</div>
+                <div>
+                    <h3 class="title-blue font-semibold text-lg group-hover:text-orange-500">Problema</h3>
+                    <p class="text-gray-600 text-sm">Desafios do delivery atual</p>
+                </div>
+            </a>
+
+            <!-- Slide 3 -->
+            <a href="slide_3_daas_proposal.html" class="slide-link p-4 rounded-lg flex items-center space-x-4 group">
+                <div class="slide-number">3</div>
+                <div>
+                    <h3 class="title-blue font-semibold text-lg group-hover:text-orange-500">Proposta DaaS</h3>
+                    <p class="text-gray-600 text-sm">Drone-as-a-Service</p>
+                </div>
+            </a>
+
+            <!-- Slide 4 -->
+            <a href="slide_4_objectives_questions.html" class="slide-link p-4 rounded-lg flex items-center space-x-4 group">
+                <div class="slide-number">4</div>
+                <div>
+                    <h3 class="title-blue font-semibold text-lg group-hover:text-orange-500">Objetivos e Perguntas</h3>
+                    <p class="text-gray-600 text-sm">Metas e questões de pesquisa</p>
+                </div>
+            </a>
+
+            <!-- Slide 5 -->
+            <a href="slide_5_methodological_framework.html" class="slide-link p-4 rounded-lg flex items-center space-x-4 group">
+                <div class="slide-number">5</div>
+                <div>
+                    <h3 class="title-blue font-semibold text-lg group-hover:text-orange-500">Framework Metodológico</h3>
+                    <p class="text-gray-600 text-sm">Estrutura da metodologia</p>
+                </div>
+            </a>
+
+            <!-- Slide 6 -->
+            <a href="slide_6_methodology_data_scope.html" class="slide-link p-4 rounded-lg flex items-center space-x-4 group">
+                <div class="slide-number">6</div>
+                <div>
+                    <h3 class="title-blue font-semibold text-lg group-hover:text-orange-500">Metodologia - Dados e Escopo</h3>
+                    <p class="text-gray-600 text-sm">Fontes e delimitações</p>
+                </div>
+            </a>
+
+            <!-- Slide 6.5 -->
+            <a href="slide_6_5_delivery_modes.html" class="slide-link p-4 rounded-lg flex items-center space-x-4 group">
+                <div class="slide-number">6.5</div>
+                <div>
+                    <h3 class="title-blue font-semibold text-lg group-hover:text-orange-500">Modos de Entrega</h3>
+                    <p class="text-gray-600 text-sm">Comparação entre estratégias logísticas</p>
+                </div>
+            </a>
+
+            <!-- Slide 7 -->
+            <a href="slide_7_methodology_logistic_1.html" class="slide-link p-4 rounded-lg flex items-center space-x-4 group">
+                <div class="slide-number">7</div>
+                <div>
+                    <h3 class="title-blue font-semibold text-lg group-hover:text-orange-500">Metodologia - Logística 1</h3>
+                    <p class="text-gray-600 text-sm">Análise operacional parte 1</p>
+                </div>
+            </a>
+
+            <!-- Slide 8 -->
+            <a href="slide_8_methodology_logistic_2.html" class="slide-link p-4 rounded-lg flex items-center space-x-4 group">
+                <div class="slide-number">8</div>
+                <div>
+                    <h3 class="title-blue font-semibold text-lg group-hover:text-orange-500">Metodologia - Logística 2</h3>
+                    <p class="text-gray-600 text-sm">Análise operacional parte 2</p>
+                </div>
+            </a>
+
+            <!-- Slide 9 -->
+            <a href="slide_9_methodology_economic.html" class="slide-link p-4 rounded-lg flex items-center space-x-4 group">
+                <div class="slide-number">9</div>
+                <div>
+                    <h3 class="title-blue font-semibold text-lg group-hover:text-orange-500">Metodologia - Econômica</h3>
+                    <p class="text-gray-600 text-sm">Análise financeira</p>
+                </div>
+            </a>
+
+            <!-- Slide 10 -->
+            <a href="slide_10_methodology_risk.html" class="slide-link p-4 rounded-lg flex items-center space-x-4 group">
+                <div class="slide-number">10</div>
+                <div>
+                    <h3 class="title-blue font-semibold text-lg group-hover:text-orange-500">Metodologia - Riscos</h3>
+                    <p class="text-gray-600 text-sm">Análise de sensibilidade</p>
+                </div>
+            </a>
+
+            <!-- Slide 11 -->
+            <a href="slide_11_expected_results_contributions.html" class="slide-link p-4 rounded-lg flex items-center space-x-4 group">
+                <div class="slide-number">11</div>
+                <div>
+                    <h3 class="title-blue font-semibold text-lg group-hover:text-orange-500">Resultados e Contribuições</h3>
+                    <p class="text-gray-600 text-sm">Expectativas e impactos</p>
+                </div>
+            </a>
+
+            <!-- Slide 12 -->
+            <a href="slide_12_project_schedule.html" class="slide-link p-4 rounded-lg flex items-center space-x-4 group">
+                <div class="slide-number">12</div>
+                <div>
+                    <h3 class="title-blue font-semibold text-lg group-hover:text-orange-500">Cronograma</h3>
+                    <p class="text-gray-600 text-sm">Planejamento do projeto</p>
+                </div>
+            </a>
+
+            <!-- Slide 13 -->
+            <a href="slide_13_acknowledgements_contact.html" class="slide-link p-4 rounded-lg flex items-center space-x-4 group">
+                <div class="slide-number">13</div>
+                <div>
+                    <h3 class="title-blue font-semibold text-lg group-hover:text-orange-500">Agradecimentos</h3>
+                    <p class="text-gray-600 text-sm">Contatos e Q&A</p>
+                </div>
+            </a>
+        </div>
+
+        <!-- Instruções -->
+        <div class="mt-12 text-center">
+            <div class="bg-blue-50 p-6 rounded-lg inline-block">
+                <i class="fas fa-info-circle bullet-orange text-2xl mb-2"></i>
+                <p class="text-gray-700">
+                    <strong>Navegação:</strong> Clique em qualquer slide para visualizá-lo. Use as setas do navegador para voltar ao índice.
+                </p>
+            </div>
+        </div>
+
+        <!-- Rodapé -->
+        <div class="footer">
+            Índice | ITA - 2024
+        </div>
+    </div>
+</body>
+</html> 

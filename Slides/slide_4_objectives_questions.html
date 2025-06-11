@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slide 4 - Objetivos e Questões</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background: linear-gradient(135deg, #0a0f1c 0%, #12182b 50%, #1a2332 100%);
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            padding: 60px;
+        }
+        
+        .content-left {
+            flex: 1;
+            padding-right: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .content-right {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .slide-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #00bfff;
+            margin-bottom: 2rem;
+            text-shadow: 0 0 20px rgba(0, 191, 255, 0.4);
+        }
+        
+        .bullet-point {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+            font-size: 1.25rem;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+        
+        .bullet-point.sub-item {
+            margin-left: 2rem;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .bullet-icon {
+            width: 8px;
+            height: 8px;
+            background: #00bfff;
+            border-radius: 50%;
+            margin-right: 1rem;
+            margin-top: 0.75rem;
+            box-shadow: 0 0 10px rgba(0, 191, 255, 0.6);
+        }
+        
+        .sub-bullet-icon {
+            width: 6px;
+            height: 6px;
+            background: #ffffff;
+            border-radius: 50%;
+            margin-right: 1rem;
+            margin-top: 0.75rem;
+            opacity: 0.8;
+        }
+        
+        .highlight-text {
+            color: #00bfff;
+            font-weight: 600;
+        }
+        
+        .visual-element {
+            width: 300px;
+            height: 300px;
+            background-image: url("https://private-us-east-1.manuscdn.com/sessionFile/rciVyjHlvroGZrs9SDaEjB/sandbox/slides_resource_i4efh998hqnnlhiyyjzhg-23146f42-e2b-prod-aws_1749570200963_na1fn_L2hvbWUvdWJ1bnR1L3ByZXNlbnRhdGlvbl9kcm9uZV9kZWxpdmVyeS9kaWdpdGFsX2NvbXBhc3NfaHVk.png?x-oss-process=image/resize,w_1560,h_1560/format,webp&Expires=1767225600&Policy=eyJTdGF0ZW1lbnQiOlt7IlJlc291cmNlIjoiaHR0cHM6Ly9wcml2YXRlLXVzLWVhc3QtMS5tYW51c2Nkbi5jb20vc2Vzc2lvbkZpbGUvcmNpVnlqSGx2cm9HWnJzOVNEYUVqQi9zYW5kYm94L3NsaWRlc19yZXNvdXJjZV9pNGVmaDk5OGhxbm5saGl5eWp6aGctMjMxNDZmNDItZTJiLXByb2QtYXdzXzE3NDk1NzAyMDA5NjNfbmExZm5fTDJodmJXVXZkV0oxYm5SMUwzQnlaWE5sYm5SaGRHbHZibDlrY205dVpWOWtaV3hwZG1WeWVTOWthV2RwZEdGc1gyTnZiWEJoYzNOZmFIVmsucG5nP3gtb3NzLXByb2Nlc3M9aW1hZ2UvcmVzaXplLHdfMTU2MCxoXzE1NjAvZm9ybWF0LHdlYnAiLCJDb25kaXRpb24iOnsiRGF0ZUxlc3NUaGFuIjp7IkFXUzpFcG9jaFRpbWUiOjE3NjcyMjU2MDB9fX1dfQ__&Key-Pair-Id=K2HSFNDJXOU9YS&Signature=FzdE1smZSFHyZVMaPM4aUIzfeKuYH8IgQ8TVGbFhdsViOa6PPmqUP~tLxMmddO54tdF-pVYIsXIL6djozUgUcQ3JDGFN-B3uaVhsOfVBmlciMm4D9Lq0hvU4FU0qh~q7YR4zKyzOQH~0xPcSG2D7ASSXgsTr-SuEMZWOxSQrWDUeLSI5JRhGj5dwK0AwIEDoSkTNw2QTOGjHEdACCuzcriIw~3yE0Et~OKBMb9Hj6OVazkt5gxkg6Rbm5B4RrqIgsbpMlJHoJ6kbSI33NXBzh5Da3yvvGh35FedrrUsuALJL5FYsQT729K59ebuBEjORp~z6ciDApbu7H4-WVQy7yg__");
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            border-radius: 15px;
+            box-shadow: 0 0 30px rgba(0, 191, 255, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="content-left">
+            <h1 class="slide-title">Norte</h1>
+            
+            <div class="bullet-point">
+                <div class="bullet-icon"></div>
+                <div><span class="highlight-text">Objetivo:</span> Propor e validar um modelo de análise de viabilidade para DaaS.</div>
+            </div>
+            
+            <div class="bullet-point sub-item">
+                <div class="sub-bullet-icon"></div>
+                <div><span class="highlight-text">Mensurar</span> ganho operacional</div>
+            </div>
+            
+            <div class="bullet-point sub-item">
+                <div class="sub-bullet-icon"></div>
+                <div><span class="highlight-text">Dimensionar</span> infraestrutura e tamanho da frota</div>
+            </div>
+
+            <div class="bullet-point sub-item">
+                <div class="sub-bullet-icon"></div>
+                <div><span class="highlight-text">Projetar</span> fluxo de caixa do negócio</div>
+            </div>
+
+            <div class="bullet-point sub-item">
+                <div class="sub-bullet-icon"></div>
+                <div><span class="highlight-text">Avaliar</span> robustez e risco do modelo</div>
+            </div>
+        </div>
+        
+        <div class="content-right">
+            <div class="visual-element"></div>
+        </div>
+    </div>
+</body>
+</html>
+

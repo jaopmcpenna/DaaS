@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slide 6 - Metodologia I: Dados e Escopo</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .slide-container {
+            width: 1280px;
+            min-height: 720px;
+            background: linear-gradient(135deg, #0a0f1c 0%, #12182b 50%, #1a2332 100%);
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            padding: 60px;
+        }
+        
+        .content-left {
+            flex: 1;
+            padding-right: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .content-right {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .slide-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #00bfff;
+            margin-bottom: 2rem;
+            text-shadow: 0 0 20px rgba(0, 191, 255, 0.4);
+        }
+        
+        .bullet-point {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+            font-size: 1.25rem;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+        
+        .bullet-icon {
+            width: 8px;
+            height: 8px;
+            background: #00bfff;
+            border-radius: 50%;
+            margin-right: 1rem;
+            margin-top: 0.75rem;
+            box-shadow: 0 0 10px rgba(0, 191, 255, 0.6);
+        }
+        
+        .visual-element {
+            width: 450px;
+            height: 350px;
+            background-image: url("assets/logo.png");
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-container">
+        <div class="content-left">
+            <h1 class="slide-title">Fonte de Dados e Tratamento</h1>
+            
+            <div class="bullet-point">
+                <div class="bullet-icon"></div>
+                <div>4,05 milhões de pedidos contendo lat/long de origem e destino, cedidos pela empresa Brendi.</div>
+            </div>
+            
+            <div class="bullet-point">
+                <div class="bullet-icon"></div>
+                <div>Higienização e anonimização dos dados.</div>
+            </div>
+            
+            <div class="bullet-point">
+                <div class="bullet-icon"></div>
+                <div>Critérios de cobertura espacial para escolha da cidade-alvo.</div>
+            </div>
+        </div>
+        
+        <div class="content-right">
+            <div class="visual-element"></div>
+        </div>
+    </div>
+</body>
+</html>
+

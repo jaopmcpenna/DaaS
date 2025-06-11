@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apresentação - Viabilidade DaaS</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f8fafc;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        
+        .slide-container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .slide-frame {
+            width: 1280px;
+            height: 720px;
+            border: none;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px -12px rgba(0, 0, 0, 0.25);
+            background: white;
+            transition: all 0.5s ease;
+        }
+        
+        .slide-frame.transitioning {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .navigation {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 25px;
+            padding: 15px 25px;
+            color: white;
+            z-index: 1000;
+            transition: opacity 0.3s ease;
+        }
+        
+        .slide-counter {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            background: rgba(30, 64, 175, 0.9);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            z-index: 1000;
+        }
+        
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 4px;
+            background: #f97316;
+            transition: width 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .slide-title {
+            position: fixed;
+            top: 30px;
+            left: 30px;
+            background: rgba(249, 115, 22, 0.9);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-weight: bold;
+            z-index: 1000;
+            max-width: 400px;
+            text-align: center;
+        }
+        
+        .help-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+        }
+        
+        .help-content {
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            max-width: 500px;
+            text-align: center;
+        }
+        
+
+    </style>
+</head>
+<body>
+    <!-- Progress Bar -->
+    <div class="progress-bar" id="progressBar"></div>
+    
+    <!-- Slide Counter -->
+    <div class="slide-counter" id="slideCounter">1 / 16</div>
+    
+    <!-- Slide Title -->
+    <div class="slide-title" id="slideTitle">Carregando...</div>
+    
+    <!-- Navigation Help -->
+    <div class="navigation" id="navigationHelp">
+        <i class="fas fa-keyboard mr-2"></i>
+        Use ← → ou Espaço/Enter para navegar | ESC para ajuda | F para tela cheia
+    </div>
+    
+
+    
+    <!-- Help Overlay -->
+    <div class="help-overlay" id="helpOverlay">
+        <div class="help-content">
+            <h2 class="text-blue-700 mb-4 text-2xl font-bold">Controles da Apresentação</h2>
+            <div class="text-left space-y-2">
+                <p><strong>→ ou Espaço:</strong> Próximo slide</p>
+                <p><strong>← ou Backspace:</strong> Slide anterior</p>
+                <p><strong>Home:</strong> Primeiro slide</p>
+                <p><strong>End:</strong> Último slide</p>
+                <p><strong>F:</strong> Tela cheia</p>
+                <p><strong>ESC:</strong> Mostrar/ocultar ajuda</p>
+                <p><strong>R:</strong> Reiniciar apresentação</p>
+                <p><strong>P:</strong> Pausar/retomar apresentação</p>
+            </div>
+            <button onclick="toggleHelp()" class="mt-4 bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+                Fechar
+            </button>
+        </div>
+    </div>
+    
+    <div class="slide-container">
+        <iframe id="slideFrame" class="slide-frame" src=""></iframe>
+    </div>
+    
+    <script>
+        let currentSlide = 1;
+        let isPaused = false;
+        
+        // Lista de slides com seus títulos
+        const slides = [
+            { file: 'slide_1_cover.html', title: 'Título' },
+            { file: 'slide_2_context_problem.html', title: 'Problema' },
+            { file: 'slide_3_daas_proposal.html', title: 'Proposta DaaS' },
+            { file: 'slide_4_objectives_questions.html', title: 'Objetivos e Perguntas' },
+            { file: 'slide_5_methodological_framework.html', title: 'Framework Metodológico' },
+            { file: 'slide_6_methodology_data_scope.html', title: 'Metodologia - Dados e Escopo' },
+            { file: 'slide_6_5_delivery_modes.html', title: 'Modos de Entrega' },
+            { file: 'slide_7_methodology_logistic_1.html', title: 'Metodologia - Logística 1' },
+            { file: 'slide_8_methodology_logistic_2.html', title: 'Metodologia - Logística 2' },
+            { file: 'slide_8_5_methodology_energy.html', title: 'Modelagem Energética' },
+            { file: 'slide_9_methodology_economic.html', title: 'Metodologia - Econômica' },
+            { file: 'slide_10_methodology_risk.html', title: 'Metodologia - Riscos' },
+            { file: 'slide_11_expected_results_contributions.html', title: 'Resultados e Contribuições' },
+            { file: 'slide_12_project_schedule.html', title: 'Cronograma - Fase 1' },
+            { file: 'slide_13_project_schedule_part2.html', title: 'Cronograma - Fase 2' },
+            { file: 'slide_13_acknowledgements_contact.html', title: 'Agradecimentos' }
+        ];
+        
+        const totalSlides = slides.length;
+        
+
+        
+        function updateSlide() {
+            if (isPaused) return;
+            
+            const slideFrame = document.getElementById('slideFrame');
+            const slide = slides[currentSlide - 1];
+            
+            if (!slide) return;
+            
+            // Adicionar efeito de transição
+            slideFrame.classList.add('transitioning');
+            
+            setTimeout(() => {
+                // Carregar novo slide
+                slideFrame.src = slide.file;
+                
+                // Aguardar carregamento do iframe
+                slideFrame.onload = function() {
+                    // Remover efeito de transição
+                    slideFrame.classList.remove('transitioning');
+                };
+                
+                // Update UI elements
+                document.getElementById('slideCounter').textContent = `${currentSlide} / ${totalSlides}`;
+                document.getElementById('slideTitle').textContent = slide.title;
+                
+                // Update progress bar
+                const progress = (currentSlide / totalSlides) * 100;
+                document.getElementById('progressBar').style.width = progress + '%';
+                
+            }, 200);
+        }
+        
+        function nextSlide() {
+            if (currentSlide < totalSlides && !isPaused) {
+                currentSlide++;
+                updateSlide();
+            }
+        }
+        
+        function prevSlide() {
+            if (currentSlide > 1 && !isPaused) {
+                currentSlide--;
+                updateSlide();
+            }
+        }
+        
+        function firstSlide() {
+            if (!isPaused) {
+                currentSlide = 1;
+                updateSlide();
+            }
+        }
+        
+        function lastSlide() {
+            if (!isPaused) {
+                currentSlide = totalSlides;
+                updateSlide();
+            }
+        }
+        
+        function togglePause() {
+            isPaused = !isPaused;
+            const navigationHelp = document.getElementById('navigationHelp');
+            
+            if (isPaused) {
+                navigationHelp.innerHTML = '<i class="fas fa-pause mr-2"></i>Apresentação pausada - Pressione P para continuar';
+                navigationHelp.style.background = 'rgba(249, 115, 22, 0.9)';
+            } else {
+                navigationHelp.innerHTML = '<i class="fas fa-keyboard mr-2"></i>Use ← → ou Espaço/Enter para navegar | ESC para ajuda | F para tela cheia';
+                navigationHelp.style.background = 'rgba(0, 0, 0, 0.8)';
+            }
+        }
+        
+        function toggleHelp() {
+            const help = document.getElementById('helpOverlay');
+            help.style.display = help.style.display === 'flex' ? 'none' : 'flex';
+        }
+        
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen();
+            } else {
+                document.exitFullscreen();
+            }
+        }
+        
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            switch(e.key) {
+                case 'ArrowRight':
+                case ' ':
+                case 'Enter':
+                    e.preventDefault();
+                    nextSlide();
+                    break;
+                case 'ArrowLeft':
+                case 'Backspace':
+                    e.preventDefault();
+                    prevSlide();
+                    break;
+                case 'Home':
+                    e.preventDefault();
+                    firstSlide();
+                    break;
+                case 'End':
+                    e.preventDefault();
+                    lastSlide();
+                    break;
+                case 'Escape':
+                    e.preventDefault();
+                    toggleHelp();
+                    break;
+                case 'f':
+                case 'F':
+                    e.preventDefault();
+                    toggleFullscreen();
+                    break;
+                case 'r':
+                case 'R':
+                    e.preventDefault();
+                    firstSlide();
+                    break;
+                case 'p':
+                case 'P':
+                    e.preventDefault();
+                    togglePause();
+                    break;
+            }
+        });
+        
+        // Initialize
+        updateSlide();
+        
+        // Auto-hide navigation after 5 seconds
+        setTimeout(() => {
+            const nav = document.getElementById('navigationHelp');
+            nav.style.opacity = '0.7';
+            
+            // Show again on mouse movement
+            document.addEventListener('mousemove', function() {
+                nav.style.opacity = '1';
+                setTimeout(() => {
+                    nav.style.opacity = '0.7';
+                }, 3000);
+            });
+        }, 5000);
+        
+        // Handle iframe load errors
+        document.getElementById('slideFrame').onerror = function() {
+            console.error('Erro ao carregar slide:', slides[currentSlide - 1].file);
+        };
+        
+        // Show/hide cursor in fullscreen
+        document.addEventListener('fullscreenchange', function() {
+            if (document.fullscreenElement) {
+                document.body.style.cursor = 'none';
+                setTimeout(() => {
+                    document.body.style.cursor = 'default';
+                }, 3000);
+            } else {
+                document.body.style.cursor = 'default';
+            }
+        });
+    </script>
+</body>
+</html> 
